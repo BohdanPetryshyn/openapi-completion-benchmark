@@ -1,0 +1,12 @@
+{
+  "name": "openapi-completion-evan",
+  "version": "0.0.1",
+  "author": "Bohdan Petryshyn",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@huggingface/inference": "^2.6.4",
+    "js-yaml": "^4.1.0",
+    "p-limit": "^4.0.0"
+  }
+}
