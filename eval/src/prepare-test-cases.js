@@ -8,7 +8,7 @@ import {
   MASK,
 } from "./shared.js";
 
-const TEST_CASES_PER_DEFINITION = 10;
+const TEST_CASES_PER_DEFINITION = 20;
 
 if (fs.existsSync(TEST_CASES_DIR)) {
   console.log("Cleaning up test cases directory");
@@ -52,7 +52,7 @@ for (const definitionFileName of definitionFileNames) {
 
     const testCasePath = path.resolve(
       TEST_CASES_DIR,
-      `${definitionFileName}.${testCaseIndex}.txt`
+      `${definitionFileName}.test-${testCaseIndex}.txt`
     );
 
     console.log(`Saving test case ${testCasePath}`);

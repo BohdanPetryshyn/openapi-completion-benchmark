@@ -3,18 +3,30 @@ import path from "node:path";
 import cp from "node:child_process";
 
 import yaml from "js-yaml";
+import winston from "winston";
 
 import { DEFINITIONS_DIR, RESULTS_DIR, EVALUATIONS_DIR } from "./shared.js";
 
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.simple(),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: `${EVALUATIONS_DIR}/output.log` }),
+  ],
+});
+
 if (fs.existsSync(EVALUATIONS_DIR)) {
-  console.log("Cleaning up evaluations directory");
+  logger.info("Cleaning up evaluations directory");
   fs.rmSync(EVALUATIONS_DIR, { recursive: true, force: true });
 }
 fs.mkdirSync(EVALUATIONS_DIR, { recursive: true });
 
-const infilledDefinitionFileNames = fs.readdirSync(RESULTS_DIR);
+const infilledDefinitionFileNames = fs
+  .readdirSync(RESULTS_DIR)
+  .filter((name) => name.endsWith(".yaml"));
 
-console.log(
+logger.info(
   `Found ${infilledDefinitionFileNames.length} infilled definition files`
 );
 
@@ -31,7 +43,7 @@ for (const [
     infilledDefinitionFileName
   );
 
-  console.log(`Evaluating ${infilledDefinitionFileName} - `);
+  logger.info(`Evaluating ${infilledDefinitionFileName} - `);
 
   const originalDefinitionFileName = infilledDefinitionFileName.slice(
     0,
@@ -66,19 +78,19 @@ for (const [
   }
 
   if (evaluationResult === "") {
-    console.log("Correct");
+    logger.info("Correct");
     correct++;
   } else if (evaluationResult === null) {
-    console.log("Invalid");
+    logger.info("Invalid");
     invalid++;
   } else {
     const evaluation = yaml.load(evaluationResult);
 
     if (evaluateDiff(evaluation?.paths) && evaluateDiff(evaluation?.info)) {
-      console.log("Correct");
+      logger.info("Correct");
       correct++;
     } else {
-      console.log("Incorrect");
+      logger.info("Incorrect");
       incorrect++;
     }
 
@@ -104,7 +116,7 @@ for (const [
     100
   ).toFixed(2);
 
-  console.log(
+  logger.info(
     `\nCorrect: ${correct} (${correctPercentage}%) | Incorrect: ${incorrect} (${incorrectPercentage}%) | Invalid: ${invalid} (${invalidPercentage}%) | Progress: ${progressPercentage}%\n`
   );
 }

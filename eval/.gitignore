@@ -1,6 +1,4 @@
 /node_modules/
-/apis/
-/evaluations/
-/results/
-/test/
-/tests/
+/runtime/
+/test
+/.env

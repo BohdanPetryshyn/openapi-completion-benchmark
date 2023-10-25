@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { HfInference } from "@huggingface/inference";
 import pLimit from "p-limit";
+import winston from "winston";
 
 import {
   TEST_CASES_DIR,
@@ -11,24 +11,29 @@ import {
   RESULTS_DIR,
   MODEL,
 } from "./shared.js";
+import { hf } from "./hf.js";
 import { buildPrompt } from "./prompt-builders/naive.js";
 
 const INFILLED_LINES_TOLERANCE = 5;
 
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.simple(),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: `${RESULTS_DIR}/output.log` }),
+  ],
+});
+
 if (fs.existsSync(RESULTS_DIR)) {
-  console.log("Cleaning up results directory");
+  logger.info("Cleaning up results directory");
   fs.rmSync(RESULTS_DIR, { recursive: true, force: true });
 }
 fs.mkdirSync(RESULTS_DIR, { recursive: true });
 
-let hf = new HfInference("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");
-// hf = await hf.endpoint(
-//   "https://a5469lb6kfjvxan8.eu-west-1.aws.endpoints.huggingface.cloud"
-// );
-
 const testDefinitionFileNames = fs.readdirSync(TEST_CASES_DIR);
 
-console.log(`Found ${testDefinitionFileNames.length} test definition files`);
+logger.info(`Found ${testDefinitionFileNames.length} test definition files`);
 
 const limit = pLimit(10);
 
@@ -41,7 +46,7 @@ await Promise.all(
       );
       const testDefinition = fs.readFileSync(testDefinitionPath, "utf8");
 
-      console.log(`Infilling ${testDefinitionFileName}`);
+      logger.info(`Infilling ${testDefinitionFileName}`);
 
       const maskIndex = testDefinition.indexOf(MASK);
       let testDefinitionPrefix = testDefinition.slice(0, maskIndex);
@@ -50,18 +55,21 @@ await Promise.all(
       let infilled = "";
 
       while (true) {
+        logger.profile(`Building prompt - ${testDefinitionFileName}`);
         const { promptPrefix, promptSuffix } = buildPrompt({
           prefix: testDefinitionPrefix,
           suffix: testDefinitionSuffix,
+          maxTokens: 4096 - 10,
         });
+        logger.profile(`Building prompt - ${testDefinitionFileName}`);
 
         const inputs = `<PRE> ${promptPrefix} <SUF>${promptSuffix} <MID>`;
 
         let generatedText;
 
         try {
-          console.time(`Generating text - ${testDefinitionFileName}`);
-          console.log(`Inputs length ${inputs.length}`);
+          logger.profile(`Generating text - ${testDefinitionFileName}`);
+          logger.info(`Inputs length ${inputs.length}`);
           const { generated_text } = await hf.textGeneration({
             model: MODEL,
             inputs,
@@ -69,10 +77,10 @@ await Promise.all(
               max_new_tokens: 250,
             },
           });
-          console.timeEnd(`Generating text - ${testDefinitionFileName}`);
+          logger.profile(`Generating text - ${testDefinitionFileName}`);
           generatedText = generated_text;
         } catch (e) {
-          console.error("Error generating text", e);
+          logger.error("Error generating text", e);
           throw e;
         }
 
@@ -84,7 +92,7 @@ await Promise.all(
 
         if (infilledPart.endsWith(" <EOT>")) {
           infilled += infilledPart.slice(0, -6);
-          console.log("Definition infilled");
+          logger.info("Definition infilled");
           break;
         }
 
@@ -94,7 +102,7 @@ await Promise.all(
           infilled.split("\n").length - 1 >=
           MASKED_LINES_PER_TEST_CASE + INFILLED_LINES_TOLERANCE
         ) {
-          console.log("Generated infilling is too long");
+          logger.info("Generated infilling is too long");
           break;
         }
 
@@ -105,10 +113,10 @@ await Promise.all(
 
       const resultPath = path.resolve(
         RESULTS_DIR,
-        `${testDefinitionFileName}.result.txt`
+        `${testDefinitionFileName}.result.yaml`
       );
 
-      console.log("Saving result");
+      logger.info("Saving result");
       fs.writeFileSync(resultPath, result, "utf8");
     }, testDefinitionFileName)
   )
