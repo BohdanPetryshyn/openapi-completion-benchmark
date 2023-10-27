@@ -1,16 +1,17 @@
 import { truncateToTokenLength } from "../tokenizer.js";
 
 export function buildPrompt({ prefix, suffix, maxTokens }) {
-  const maxTokensPerSide = Math.floor(maxTokens / 2);
+  const maxPrefixTokens = Math.floor(maxTokens * 0.7);
+  const maxSuffixTokens = Math.floor(maxTokens * 0.3);
 
   const { text: promptPrefix } = truncateToTokenLength(
     prefix,
-    maxTokensPerSide,
+    maxPrefixTokens,
     "left"
   );
   const { text: promptSuffix } = truncateToTokenLength(
     suffix,
-    maxTokensPerSide,
+    maxSuffixTokens,
     "right"
   );
 

@@ -10,9 +10,10 @@ import {
   MASKED_LINES_PER_TEST_CASE,
   RESULTS_DIR,
   MODEL,
+  PROMPT_BUILDER,
 } from "./shared.js";
 import { hf } from "./hf.js";
-import { buildPrompt } from "./prompt-builders/naive.js";
+import { PROMPT_BUILDERS } from "./prompt-builders/prompt-builders.js";
 
 const INFILLED_LINES_TOLERANCE = 5;
 
@@ -32,8 +33,10 @@ if (fs.existsSync(RESULTS_DIR)) {
 fs.mkdirSync(RESULTS_DIR, { recursive: true });
 
 const testDefinitionFileNames = fs.readdirSync(TEST_CASES_DIR);
-
 logger.info(`Found ${testDefinitionFileNames.length} test definition files`);
+
+const buildPrompt = PROMPT_BUILDERS[PROMPT_BUILDER];
+logger.info(`Using ${PROMPT_BUILDER} prompt builder`);
 
 const limit = pLimit(10);
 

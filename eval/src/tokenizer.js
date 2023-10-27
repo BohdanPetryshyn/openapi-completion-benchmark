@@ -19,13 +19,13 @@ export function truncateToTokenLength(text, length, side) {
   const encoded = llamaTokenizer.encode(truncatedText);
 
   if (encoded.length <= length) {
-    return truncatedText;
+    return { text: truncatedText, length: encoded.length };
   }
 
   if (side === "left") {
-    return llamaTokenizer.decode(encoded.slice(-length));
+    return { text: llamaTokenizer.decode(encoded.slice(-length)), length };
   } else if (side === "right") {
-    return llamaTokenizer.decode(encoded.slice(0, length));
+    return { text: llamaTokenizer.decode(encoded.slice(0, length)), length };
   } else {
     throw new Error("Invalid side");
   }
