@@ -38,7 +38,7 @@ logger.info(`Found ${testDefinitionFileNames.length} test definition files`);
 const buildPrompt = PROMPT_BUILDERS[PROMPT_BUILDER];
 logger.info(`Using ${PROMPT_BUILDER} prompt builder`);
 
-const limit = pLimit(10);
+const limit = pLimit(5);
 
 await Promise.all(
   testDefinitionFileNames.map((testDefinitionFileName) =>

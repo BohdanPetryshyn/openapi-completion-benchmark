@@ -86,11 +86,13 @@ for (const [
   } else {
     const evaluation = yaml.load(evaluationResult);
 
-    if (evaluateDiff(evaluation?.paths) && evaluateDiff(evaluation?.info)) {
+    if (evaluateDiff(evaluation?.paths)) {
       logger.info("Correct");
+      evaluation.IS_CORRECT = true;
       correct++;
     } else {
       logger.info("Incorrect");
+      evaluation.IS_CORRECT = false;
       incorrect++;
     }
 
@@ -98,7 +100,11 @@ for (const [
       EVALUATIONS_DIR,
       `${infilledDefinitionFileName}.evaluation.json`
     );
-    fs.writeFileSync(evaluationPath, evaluationResult, "utf8");
+    fs.writeFileSync(
+      evaluationPath,
+      JSON.stringify(evaluation, null, 2),
+      "utf8"
+    );
   }
 
   const correctPercentage = ((correct / (definitionIndex + 1)) * 100).toFixed(

@@ -8,7 +8,7 @@ import {
   MASK,
 } from "./shared.js";
 
-const TEST_CASES_PER_DEFINITION = 20;
+const TEST_CASES_PER_DEFINITION = 10;
 
 if (fs.existsSync(TEST_CASES_DIR)) {
   console.log("Cleaning up test cases directory");

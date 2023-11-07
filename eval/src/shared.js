@@ -1,7 +1,7 @@
 export const MODEL = "codellama/CodeLlama-7b-hf";
-export const PROMPT_BUILDER = "with-components";
+export const PROMPT_BUILDER = "naive";
 
-export const DEFINITIONS_DIR = "runtime/apis-10k";
+export const DEFINITIONS_DIR = "apis";
 export const TEST_CASES_DIR = "runtime/tests";
 export const RESULTS_DIR = `runtime/results/${MODEL.replace(
   "/",
