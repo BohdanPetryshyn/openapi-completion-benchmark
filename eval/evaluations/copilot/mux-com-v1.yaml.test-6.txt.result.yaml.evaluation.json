@@ -1,0 +1,80 @@
+{
+  "paths": {
+    "modified": {
+      "/video/v1/live-streams/{LIVE_STREAM_ID}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "example": {
+                            "from": {
+                              "data": {
+                                "created_at": "1609937654",
+                                "id": "ZEBrNTpHC02iUah025KM3te6ylM7W4S4silsrFtUkn3Ag",
+                                "latency_mode": "standard",
+                                "max_continuous_duration": 43200,
+                                "new_asset_settings": {
+                                  "playback_policies": [
+                                    "public"
+                                  ]
+                                },
+                                "playback_ids": [
+                                  {
+                                    "id": "HNRDuwff3K2VjTZZAPuvd2Kx6D01XUQFv02GFBHPUka018",
+                                    "policy": "public"
+                                  }
+                                ],
+                                "reconnect_window": 60,
+                                "status": "idle",
+                                "stream_key": "831b5bde-cd8a-5bc4-115d-4ba34b19f481"
+                              }
+                            },
+                            "to": {
+                              "data": {
+                                "created_at": "1609937654",
+                                "id": "ZEBrNTpHC02iUah025KM3te6ylM7W4S4silsrFtUkn3Ag",
+                                "latency_mode": "standard",
+                                "max_continuous_duration": 43200,
+                                "new_asset_settings": {
+                                  "playback_policies": [
+                                    "public"
+                                  ]
+                                },
+                                "playback_ids": [
+                                  {
+                                    "id": "HNRDuwff3K2VjTZZAPuvd2Kx6D01XUQFv02GFBHPUka018",
+                                    "policy": "public"
+                                  }
+                                ],
+                                "reconnect_window": 60,
+                                "status": "idle",
+                                "stream_key": "abcdefgh"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "PATCH": {
+              "description": {
+                "from": "Updates the parameters of a previously-created live stream. This currently supports a subset of variables. Supply the live stream ID and the updated parameters and Mux will return the corresponding live stream information. The information returned will be the same after update as for subsequent get live stream requests.",
+                "to": "Updates the details of an already-created live stream with the provided live stream ID. This currently supports only the `latency_mode`, `max_continuous_duration`, and `reconnect_window` fields."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

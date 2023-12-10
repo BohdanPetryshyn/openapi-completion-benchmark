@@ -1,0 +1,57 @@
+{
+  "paths": {
+    "modified": {
+      "/apps/{appId}/exports/months": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "summary": {
+                "from": "List ExportEntity",
+                "to": "List ExportEntity by months"
+              },
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "items": {
+                              "type": {
+                                "from": "",
+                                "to": "object"
+                              },
+                              "properties": {
+                                "added": [
+                                  "year",
+                                  "month"
+                                ],
+                                "deleted": [
+                                  "period_start",
+                                  "status",
+                                  "id",
+                                  "period_end",
+                                  "total_credit",
+                                  "updated_at",
+                                  "created_at",
+                                  "entries_count",
+                                  "total_debit"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

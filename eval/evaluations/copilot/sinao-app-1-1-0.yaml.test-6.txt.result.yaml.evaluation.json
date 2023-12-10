@@ -1,0 +1,12 @@
+{
+  "paths": {
+    "added": [
+      "/apps/{appId}/invoices/{id}/preview"
+    ],
+    "deleted": [
+      "/apps/{appId}/invoices/{id}/preview.jpg"
+    ]
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

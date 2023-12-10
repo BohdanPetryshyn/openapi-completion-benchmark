@@ -1,0 +1,33 @@
+{
+  "paths": {
+    "modified": {
+      "/v1/jockeys/{jockey_id}/analysis/courses": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "race_class"
+                  ]
+                },
+                "modified": {
+                  "query": {
+                    "min_distance_y": {
+                      "description": {
+                        "from": "<p>Query by minimum race distance (yards)</p>",
+                        "to": "<p>Query by class:</p><p>class_1, class_2, class_3, class_4, class_5, class_6, class_7</p>"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

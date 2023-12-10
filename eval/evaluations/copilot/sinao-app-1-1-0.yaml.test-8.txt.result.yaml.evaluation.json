@@ -1,0 +1,53 @@
+{
+  "paths": {
+    "modified": {
+      "/apps/{appId}/quotes": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "commercialvalidity_deadline"
+                  ]
+                },
+                "modified": {
+                  "query": {
+                    "downpayment_request": {
+                      "schema": {
+                        "properties": {
+                          "modified": {
+                            "amount": {
+                              "description": {
+                                "from": "Use downpayment request value for fix downpayment",
+                                "to": "Use downpayment request value for fix downpayment request amount"
+                              }
+                            },
+                            "percent": {
+                              "description": {
+                                "from": "Use downpayment request in percent for variable downpayment",
+                                "to": "Use downpayment request value for fix downpayment request percent"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "number_from_other_software": {
+                      "description": {
+                        "from": "Invoices imported from another software are not counted in the numbering and are not locked",
+                        "to": ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

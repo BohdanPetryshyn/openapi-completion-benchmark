@@ -5,7 +5,10 @@ import cp from "node:child_process";
 import yaml from "js-yaml";
 import winston from "winston";
 
-import { DEFINITIONS_DIR, RESULTS_DIR, EVALUATIONS_DIR } from "./shared.js";
+import { DEFINITIONS_DIR } from "./shared.js";
+
+const RESULTS_DIR = "results/copilot";
+const EVALUATIONS_DIR = "evaluations/copilot";
 
 const logger = winston.createLogger({
   level: "info",
@@ -75,6 +78,7 @@ for (const [
       .toString();
   } catch (error) {
     evaluationResult = null;
+    logger.error(error);
   }
 
   if (evaluationResult === "") {
@@ -128,7 +132,7 @@ for (const [
 }
 
 function evaluateDiff(diff, path = []) {
-  if (diff === undefined) {
+  if (diff == null) {
     return true;
   }
 

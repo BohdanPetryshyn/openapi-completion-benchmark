@@ -1,0 +1,58 @@
+{
+  "paths": {
+    "modified": {
+      "/video/v1/uploads/{UPLOAD_ID}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "example": {
+                            "from": {
+                              "data": {
+                                "asset_id": "AnFVqAVXfb7vVL3ypSQDMnJZunnb8nkwe02O00p2gK8P00",
+                                "id": "YzoCL01HHOtAVYq4Ds9zekdHJ2XqL9e8ukPWbr01KhtvM",
+                                "new_asset_settings": {
+                                  "mp4_support": "standard",
+                                  "playback_policies": [
+                                    "public"
+                                  ]
+                                },
+                                "status": "asset_created",
+                                "timeout": 3600
+                              }
+                            },
+                            "to": {
+                              "data": {
+                                "cors_origin": "https://example.com/",
+                                "id": "zd01Pe2bNpYhxbrwYABgFE01twZdtv4M00kts2i02GhbGjc",
+                                "new_asset_settings": {
+                                  "mp4_support": "standard",
+                                  "playback_policies": [
+                                    "public"
+                                  ]
+                                },
+                                "status": "waiting",
+                                "timeout": 3600
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

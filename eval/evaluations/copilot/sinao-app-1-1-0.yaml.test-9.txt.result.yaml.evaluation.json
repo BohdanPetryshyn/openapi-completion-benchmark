@@ -1,0 +1,23 @@
+{
+  "paths": {
+    "modified": {
+      "/apps/{appId}/cashflowsources/": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "identifiant"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

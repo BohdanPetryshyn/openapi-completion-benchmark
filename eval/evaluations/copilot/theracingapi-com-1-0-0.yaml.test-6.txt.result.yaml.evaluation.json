@@ -1,0 +1,39 @@
+{
+  "paths": {
+    "modified": {
+      "/v1/jockeys/{jockey_id}/analysis/owners": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "max_distance_y"
+                  ]
+                },
+                "modified": {
+                  "query": {
+                    "min_distance_y": {
+                      "schema": {
+                        "title": {
+                          "from": "Min Distance Y",
+                          "to": "Max Distance Y"
+                        },
+                        "description": {
+                          "from": "<p>Query by minimum race distance (yards)</p>",
+                          "to": "<p>Query by maximum race distance (yards)</p>"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

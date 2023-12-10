@@ -1,5 +1,5 @@
 export const MODEL = "codellama/CodeLlama-7b-hf";
-export const PROMPT_BUILDER = "naive";
+export const PROMPT_BUILDER = "with-1500-compact-components";
 
 export const DEFINITIONS_DIR = "apis";
 export const TEST_CASES_DIR = "runtime/tests";
