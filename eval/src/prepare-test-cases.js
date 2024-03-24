@@ -26,10 +26,10 @@ for (const definitionFileName of definitionFileNames) {
 
   console.log(`Creating test cases for ${definitionFileName}`);
 
-  // const minMaskIndex = definition.indexOf("\npaths:\n") + "\npaths:\n".length;
-  // const maxMaskIndex = definition.search(/\n\s*[^:]+:\s*$/m);
-  const minMaskIndex = regexIndexOf(definition, /\npaths:\n/, 0) + 8;
-  const maxMaskIndex = regexIndexOf(definition, /\n\w+:\n/, minMaskIndex);
+  // const minMaskIndex = regexIndexOf(definition, /\npaths:\n/, 0) + 8;
+  // const maxMaskIndex = regexIndexOf(definition, /\n\w+:\n/, minMaskIndex);
+  const minMaskIndex = regexIndexOf(definition, /\n\s\s"paths":\s{\n/, 0) + 12;
+  const maxMaskIndex = regexIndexOf(definition, /\n\s\s"\w+":/, minMaskIndex);
 
   const maskIndexes = Array.from(
     { length: TEST_CASES_PER_DEFINITION },

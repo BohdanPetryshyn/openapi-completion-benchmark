@@ -1,0 +1,32 @@
+{
+  "paths": {
+    "modified": {
+      "/companies/{companyId}/webhooks/{webhookId}/test": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "description": {
+                "from": "Sends sample notifications to test if the webhook is set up correctly.\n\nWe send sample notifications for maximum 20 of the merchant accounts that the webhook is configured for. If the webhook is configured for more than 20 merchant accounts, use the `merchantIds` array to specify a subset of the merchant accounts for which to send test notifications.\n\nWe send four test notifications for each event code you choose. They cover success and failure scenarios for the hard-coded currencies EUR and GBP, regardless of the currencies configured in the merchant accounts. For custom notifications, we only send the specified custom notification.\n\nThe response describes the result of the test. The `status` field tells you if the test was successful or not. You can use the other response fields to troubleshoot unsuccessful tests.\n\nTo make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):\n* Management API—Webhooks read and write",
+                "to": "Sends sample notifications to test if the webhook is set up correctly.\n\nWe send sample notifications for maximum 20 of the merchant accounts that the webhook is configured for. If the webhook is configured for more than 20 merchant accounts, we send sample notifications for the first 20 merchant accounts.\n- description: The unique identifier of the company account.\n  in: path\n  name: companyId\n  required: true\n  schema:\n    type: string\n- description: Unique identifier of the webhook configuration.\n  in: path\n  name: webhookId\n  required: true\n  schema:\n    type: string"
+              },
+              "operationID": {
+                "from": "post-companies-companyId-webhooks-webhookId-test",
+                "to": ""
+              },
+              "parameters": {
+                "deleted": {
+                  "path": [
+                    "companyId",
+                    "webhookId"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

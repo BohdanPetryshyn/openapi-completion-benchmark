@@ -1,0 +1,269 @@
+{
+  "paths": {
+    "modified": {
+      "/my/ships": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "items": {
+                                    "properties": {
+                                      "modified": {
+                                        "modules": {
+                                          "items": {
+                                            "description": {
+                                              "from": "A module can be installed in a ship and provides a set of capabilities such as storage space or quarters for crew. Module installations are permanent.",
+                                              "to": "A module can be installed in a ship and provides a set of capabilities such as mining, refining, or combat."
+                                            },
+                                            "properties": {
+                                              "added": [
+                                                "power"
+                                              ],
+                                              "deleted": [
+                                                "capacity",
+                                                "range"
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "POST": {
+              "responses": {
+                "modified": {
+                  "201": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "ship": {
+                                        "properties": {
+                                          "modified": {
+                                            "modules": {
+                                              "items": {
+                                                "description": {
+                                                  "from": "A module can be installed in a ship and provides a set of capabilities such as storage space or quarters for crew. Module installations are permanent.",
+                                                  "to": "A module can be installed in a ship and provides a set of capabilities such as mining, refining, or combat."
+                                                },
+                                                "properties": {
+                                                  "added": [
+                                                    "power"
+                                                  ],
+                                                  "deleted": [
+                                                    "capacity",
+                                                    "range"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/ships/{shipSymbol}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "modules": {
+                                        "items": {
+                                          "description": {
+                                            "from": "A module can be installed in a ship and provides a set of capabilities such as storage space or quarters for crew. Module installations are permanent.",
+                                            "to": "A module can be installed in a ship and provides a set of capabilities such as mining, refining, or combat."
+                                          },
+                                          "properties": {
+                                            "added": [
+                                              "power"
+                                            ],
+                                            "deleted": [
+                                              "capacity",
+                                              "range"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/register": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "201": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "ship": {
+                                        "properties": {
+                                          "modified": {
+                                            "modules": {
+                                              "items": {
+                                                "description": {
+                                                  "from": "A module can be installed in a ship and provides a set of capabilities such as storage space or quarters for crew. Module installations are permanent.",
+                                                  "to": "A module can be installed in a ship and provides a set of capabilities such as mining, refining, or combat."
+                                                },
+                                                "properties": {
+                                                  "added": [
+                                                    "power"
+                                                  ],
+                                                  "deleted": [
+                                                    "capacity",
+                                                    "range"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/systems/{systemSymbol}/waypoints/{waypointSymbol}/shipyard": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "ships": {
+                                        "items": {
+                                          "properties": {
+                                            "modified": {
+                                              "modules": {
+                                                "items": {
+                                                  "description": {
+                                                    "from": "A module can be installed in a ship and provides a set of capabilities such as storage space or quarters for crew. Module installations are permanent.",
+                                                    "to": "A module can be installed in a ship and provides a set of capabilities such as mining, refining, or combat."
+                                                  },
+                                                  "properties": {
+                                                    "added": [
+                                                      "power"
+                                                    ],
+                                                    "deleted": [
+                                                      "range",
+                                                      "capacity"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

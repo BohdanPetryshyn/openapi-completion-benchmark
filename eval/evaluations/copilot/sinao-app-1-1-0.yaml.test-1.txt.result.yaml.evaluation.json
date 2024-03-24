@@ -23,21 +23,146 @@
                               },
                               "properties": {
                                 "added": [
-                                  "year",
-                                  "month"
+                                  "month",
+                                  "year"
                                 ],
                                 "deleted": [
-                                  "period_start",
-                                  "status",
+                                  "created_at",
                                   "id",
                                   "period_end",
-                                  "total_credit",
-                                  "updated_at",
-                                  "created_at",
+                                  "period_start",
+                                  "status",
+                                  "total_debit",
                                   "entries_count",
-                                  "total_debit"
+                                  "total_credit",
+                                  "updated_at"
                                 ]
                               }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/apps/{appId}/recurringinvoices": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "items": {
+                              "allOf": {
+                                "added": [
+                                  "RevisionSchema[1]"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "allOf": {
+                              "added": [
+                                "RevisionSchema[1]"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/apps/{appId}/recurringinvoices/batch": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "allOf": {
+                              "added": [
+                                "RevisionSchema[1]"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/apps/{appId}/recurringinvoices/{id}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "allOf": {
+                              "added": [
+                                "RevisionSchema[1]"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "allOf": {
+                              "added": [
+                                "RevisionSchema[1]"
+                              ]
                             }
                           }
                         }

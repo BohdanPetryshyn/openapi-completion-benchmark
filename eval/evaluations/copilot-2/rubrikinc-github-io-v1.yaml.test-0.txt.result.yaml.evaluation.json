@@ -1,0 +1,20 @@
+{
+  "paths": {
+    "modified": {
+      "/vmware/compute_cluster/{id}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "description": {
+                "from": "Get details for the compute cluster.",
+                "to": "Get details for a VMware compute cluster with a specific ID."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": true
+}

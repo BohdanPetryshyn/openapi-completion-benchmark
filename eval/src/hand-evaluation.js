@@ -277,7 +277,7 @@ const { generated_text: generatedText } = await hf.textGeneration({
   model: "codellama/CodeLlama-7b-hf",
   inputs,
   parameters: {
-    max_new_tokens: 250,
+    max_new_tokens: 2048,
   },
 });
 

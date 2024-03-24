@@ -1,0 +1,55 @@
+{
+  "paths": {
+    "modified": {
+      "/mssql/db/mount": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "sort_order"
+                  ]
+                },
+                "modified": {
+                  "query": {
+                    "sort_by": {
+                      "schema": {
+                        "enum": {
+                          "added": [
+                            "sourceRecoveredPoint",
+                            "targetInstanceName",
+                            "mountedDatabaseSize",
+                            "mountedDatabaseState",
+                            "mountedDatabaseRecoveryModel",
+                            "mountedDatabaseCompatibilityLevel",
+                            "mountedDatabaseCollation",
+                            "mountedDatabaseLastBackupTime",
+                            "mountedDatabaseLastLogBackupTime",
+                            "mountedDatabaseLastRestoreTime",
+                            "mountedDatabaseLastRefreshTime",
+                            "mountedDatabaseLastRefreshDuration",
+                            "mountedDatabaseLastRefreshStatus",
+                            "mountedDatabaseLastRefreshError",
+                            "asc",
+                            "desc"
+                          ],
+                          "deleted": [
+                            "sourceRecoveryPoint",
+                            "creationDate"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

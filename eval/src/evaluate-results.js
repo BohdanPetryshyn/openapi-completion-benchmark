@@ -5,10 +5,7 @@ import cp from "node:child_process";
 import yaml from "js-yaml";
 import winston from "winston";
 
-import { DEFINITIONS_DIR } from "./shared.js";
-
-const RESULTS_DIR = "results/copilot";
-const EVALUATIONS_DIR = "evaluations/copilot";
+import { DEFINITIONS_DIR, RESULTS_DIR, EVALUATIONS_DIR } from "./shared.js";
 
 const logger = winston.createLogger({
   level: "info",
@@ -27,7 +24,7 @@ fs.mkdirSync(EVALUATIONS_DIR, { recursive: true });
 
 const infilledDefinitionFileNames = fs
   .readdirSync(RESULTS_DIR)
-  .filter((name) => name.endsWith(".yaml"));
+  .filter((name) => name.endsWith(".yaml") || name.endsWith(".json"));
 
 logger.info(
   `Found ${infilledDefinitionFileNames.length} infilled definition files`
@@ -50,7 +47,12 @@ for (const [
 
   const originalDefinitionFileName = infilledDefinitionFileName.slice(
     0,
-    infilledDefinitionFileName.indexOf(".yaml") + 5
+    Math.min(
+      [
+        infilledDefinitionFileName.indexOf(".yaml"),
+        infilledDefinitionFileName.indexOf(".json"),
+      ].filter((index) => index !== -1)
+    ) + 5
   );
   const originalDefinitionPath = path.resolve(
     DEFINITIONS_DIR,

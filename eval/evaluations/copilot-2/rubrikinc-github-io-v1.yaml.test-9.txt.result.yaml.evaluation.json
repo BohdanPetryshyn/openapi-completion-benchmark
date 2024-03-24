@@ -1,0 +1,32 @@
+{
+  "paths": {
+    "modified": {
+      "/fileset_template": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "description": {
+                "from": "Retrieve summary information for all fileset templates, including: ID and name of the fileset template, fileset template creation timestamp, array of the included filepaths, array of the excluded filepaths.",
+                "to": "Retrieve summary information for all fileset templates, including: ID and name of the fileset template, fileset template creation timestamp, array of paths to include, array of paths to exclude, array of paths to exempt from exclusion, number of hosts assigned to the fileset template, operating system type of the fileset template, and share type of the fileset template. Optionally, filter the retrieved information."
+              },
+              "parameters": {
+                "added": {
+                  "": [
+                    ""
+                  ]
+                },
+                "deleted": {
+                  "query": [
+                    "primary_cluster_id"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

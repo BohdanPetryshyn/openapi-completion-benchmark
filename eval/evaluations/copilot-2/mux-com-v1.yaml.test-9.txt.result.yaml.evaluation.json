@@ -1,0 +1,20 @@
+{
+  "paths": {
+    "modified": {
+      "/video/v1/live-streams/{LIVE_STREAM_ID}": {
+        "operations": {
+          "modified": {
+            "DELETE": {
+              "description": {
+                "from": "Deletes a live stream from the current environment. If the live stream is currently active and being streamed to, ingest will be terminated and the encoder will be disconnected.",
+                "to": "Deletes a live stream. This will immediately stop the live stream and delete the associated live stream recording."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": true
+}

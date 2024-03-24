@@ -1,0 +1,28 @@
+{
+  "paths": {
+    "modified": {
+      "/authpolicy/{resourceIdentifier}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "parameters": {
+                "modified": {
+                  "path": {
+                    "resourceIdentifier": {
+                      "description": {
+                        "from": "The ID or Amazon Resource Name (ARN) of the service network or service.",
+                        "to": "The ID or Amazon Resource Name (ARN) of the resource."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": true
+}
