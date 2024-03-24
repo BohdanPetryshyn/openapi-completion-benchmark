@@ -1,0 +1,20 @@
+{
+  "paths": {
+    "modified": {
+      "/vcd/hierarchy/{id}/children": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "summary": {
+                "from": "Get immediate descendant objects",
+                "to": "Get list of immediate descendant objects"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": true
+}

@@ -1,0 +1,33 @@
+{
+  "paths": {
+    "modified": {
+      "/merchants/{merchantId}/splitConfigurations/{splitConfigurationId}": {
+        "operations": {
+          "modified": {
+            "PATCH": {
+              "parameters": {
+                "deleted": {
+                  "path": [
+                    "merchantId"
+                  ]
+                },
+                "modified": {
+                  "path": {
+                    "splitConfigurationId": {
+                      "description": {
+                        "from": "The unique identifier of the split configuration.",
+                        "to": "The unique identifier of the merchant account."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

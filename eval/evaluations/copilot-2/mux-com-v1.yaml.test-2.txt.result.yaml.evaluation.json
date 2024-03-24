@@ -1,0 +1,24 @@
+{
+  "paths": {
+    "modified": {
+      "/video/v1/live-streams": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "parameters": {
+                "deleted": {
+                  "query": [
+                    "stream_key",
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

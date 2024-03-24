@@ -1,0 +1,152 @@
+{
+  "paths": {
+    "modified": {
+      "/my/ships/{shipSymbol}/extract": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "requestBody": {
+                "content": {
+                  "mediaTypeModified": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "modified": {
+                            "survey": {
+                              "properties": {
+                                "modified": {
+                                  "deposits": {
+                                    "description": {
+                                      "from": "A list of deposits that can be found at this location.",
+                                      "to": "A list of deposits that can be found at this survey location."
+                                    },
+                                    "items": {
+                                      "type": {
+                                        "from": "object",
+                                        "to": ""
+                                      },
+                                      "description": {
+                                        "from": "A surveyed deposit of a mineral or resource available for extraction.",
+                                        "to": "A deposit of a specific resource type that can be extracted from this survey location."
+                                      },
+                                      "required": {
+                                        "added": [
+                                          "yield"
+                                        ]
+                                      },
+                                      "properties": {
+                                        "added": [
+                                          "yield"
+                                        ],
+                                        "modified": {
+                                          "symbol": {
+                                            "description": {
+                                              "from": "The symbol of the deposit.",
+                                              "to": "The symbol of the resource that can be extracted from this deposit."
+                                            },
+                                            "minLength": {
+                                              "from": 0,
+                                              "to": 1
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/ships/{shipSymbol}/survey": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "201": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "surveys": {
+                                        "items": {
+                                          "properties": {
+                                            "modified": {
+                                              "deposits": {
+                                                "description": {
+                                                  "from": "A list of deposits that can be found at this location.",
+                                                  "to": "A list of deposits that can be found at this survey location."
+                                                },
+                                                "items": {
+                                                  "type": {
+                                                    "from": "object",
+                                                    "to": ""
+                                                  },
+                                                  "description": {
+                                                    "from": "A surveyed deposit of a mineral or resource available for extraction.",
+                                                    "to": "A deposit of a specific resource type that can be extracted from this survey location."
+                                                  },
+                                                  "required": {
+                                                    "added": [
+                                                      "yield"
+                                                    ]
+                                                  },
+                                                  "properties": {
+                                                    "added": [
+                                                      "yield"
+                                                    ],
+                                                    "modified": {
+                                                      "symbol": {
+                                                        "description": {
+                                                          "from": "The symbol of the deposit.",
+                                                          "to": "The symbol of the resource that can be extracted from this deposit."
+                                                        },
+                                                        "minLength": {
+                                                          "from": 0,
+                                                          "to": 1
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

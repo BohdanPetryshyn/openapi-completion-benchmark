@@ -1,0 +1,28 @@
+{
+  "paths": {
+    "modified": {
+      "/apps/{appId}/organizations/{id}": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "parameters": {
+                "modified": {
+                  "query": {
+                    "name": {
+                      "required": {
+                        "from": false,
+                        "to": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

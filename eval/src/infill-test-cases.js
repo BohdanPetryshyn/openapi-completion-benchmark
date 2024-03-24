@@ -6,15 +6,17 @@ import pRetry from "p-retry";
 import winston from "winston";
 
 import {
+  MODEL,
   TEST_CASES_DIR,
   MASK,
   MASKED_LINES_PER_TEST_CASE,
   RESULTS_DIR,
-  MODEL,
   PROMPT_BUILDER,
+  CONTEXT_SIZE,
 } from "./shared.js";
 import { hf } from "./hf.js";
 import { PROMPT_BUILDERS } from "./prompt-builders/prompt-builders.js";
+import { embedResult } from "./result-embedders/prevent-overfilling.js";
 
 const INFILLED_LINES_TOLERANCE = 5;
 const INFILLED_CHARACTERS_PER_LINE_TOLERANCE = 500;
@@ -69,7 +71,7 @@ await Promise.all(
         const { promptPrefix, promptSuffix } = buildPrompt({
           prefix: testDefinitionPrefix,
           suffix: testDefinitionSuffix,
-          maxTokens: 4096 - 10,
+          maxTokens: CONTEXT_SIZE - 10,
         });
         const promptBuildingEndTime = Date.now();
         logger.info(
@@ -78,7 +80,9 @@ await Promise.all(
           } ms`
         );
 
-        const inputs = `<PRE> ${promptPrefix} <SUF>${promptSuffix} <MID>`;
+        const inputs = promptSuffix
+          ? `<PRE> ${promptPrefix} <SUF>${promptSuffix} <MID>`
+          : promptPrefix;
 
         const generatedText = await pRetry(
           async () => {
@@ -106,17 +110,37 @@ await Promise.all(
           { retries: 5 }
         );
 
+        // Previously, model was returning <MID>
         // const infilledPart = generatedText.slice(
         //   generatedText.indexOf("<MID>") + 5
         // );
 
-        if (generatedText.endsWith(" <EOT>")) {
-          infilled += generatedText.slice(0, -6);
+        // Working solution
+        // if (generatedText.endsWith(" <EOT>")) {
+        //   infilled += generatedText.slice(0, -6);
+        //   logger.info("Definition infilled");
+        //   break;
+        // }
+        // infilled += generatedText;
+
+        const embedResultStartTime = Date.now();
+        const embeddedResult = embedResult(
+          generatedText,
+          promptPrefix,
+          promptSuffix || testDefinitionSuffix
+        );
+        const embedResultEndTime = Date.now();
+        logger.info(
+          `Embedding result duration: ${
+            embedResultEndTime - embedResultStartTime
+          } ms`
+        );
+
+        infilled += embeddedResult.result;
+        if (embeddedResult.embedded) {
           logger.info("Definition infilled");
           break;
         }
-
-        infilled += generatedText;
 
         if (
           infilled.split("\n").length >

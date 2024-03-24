@@ -1,0 +1,322 @@
+{
+  "paths": {
+    "modified": {
+      "/my/contracts": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "items": {
+                                    "properties": {
+                                      "modified": {
+                                        "expiration": {
+                                          "description": {
+                                            "from": "The time at which the contract expires",
+                                            "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                          },
+                                          "min": {
+                                            "from": null,
+                                            "to": 0
+                                          }
+                                        },
+                                        "factionSymbol": {
+                                          "description": {
+                                            "from": "The symbol of the faction that this contract is for.",
+                                            "to": "The symbol of the faction that issued the contract."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/contracts/{contractId}": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "expiration": {
+                                        "description": {
+                                          "from": "The time at which the contract expires",
+                                          "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                        },
+                                        "min": {
+                                          "from": null,
+                                          "to": 0
+                                        }
+                                      },
+                                      "factionSymbol": {
+                                        "description": {
+                                          "from": "The symbol of the faction that this contract is for.",
+                                          "to": "The symbol of the faction that issued the contract."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/contracts/{contractId}/accept": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "contract": {
+                                        "properties": {
+                                          "modified": {
+                                            "expiration": {
+                                              "description": {
+                                                "from": "The time at which the contract expires",
+                                                "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                              },
+                                              "min": {
+                                                "from": null,
+                                                "to": 0
+                                              }
+                                            },
+                                            "factionSymbol": {
+                                              "description": {
+                                                "from": "The symbol of the faction that this contract is for.",
+                                                "to": "The symbol of the faction that issued the contract."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/contracts/{contractId}/deliver": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "contract": {
+                                        "properties": {
+                                          "modified": {
+                                            "expiration": {
+                                              "description": {
+                                                "from": "The time at which the contract expires",
+                                                "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                              },
+                                              "min": {
+                                                "from": null,
+                                                "to": 0
+                                              }
+                                            },
+                                            "factionSymbol": {
+                                              "description": {
+                                                "from": "The symbol of the faction that this contract is for.",
+                                                "to": "The symbol of the faction that issued the contract."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/my/contracts/{contractId}/fulfill": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "contract": {
+                                        "properties": {
+                                          "modified": {
+                                            "expiration": {
+                                              "description": {
+                                                "from": "The time at which the contract expires",
+                                                "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                              },
+                                              "min": {
+                                                "from": null,
+                                                "to": 0
+                                              }
+                                            },
+                                            "factionSymbol": {
+                                              "description": {
+                                                "from": "The symbol of the faction that this contract is for.",
+                                                "to": "The symbol of the faction that issued the contract."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/register": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "modified": {
+                  "201": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "properties": {
+                                    "modified": {
+                                      "contract": {
+                                        "properties": {
+                                          "modified": {
+                                            "expiration": {
+                                              "description": {
+                                                "from": "The time at which the contract expires",
+                                                "to": "The date and time when the contract expires. After this date and time, the contract will no longer be available for acceptance."
+                                              },
+                                              "min": {
+                                                "from": null,
+                                                "to": 0
+                                              }
+                                            },
+                                            "factionSymbol": {
+                                              "description": {
+                                                "from": "The symbol of the faction that this contract is for.",
+                                                "to": "The symbol of the faction that issued the contract."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

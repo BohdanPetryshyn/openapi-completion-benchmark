@@ -1,0 +1,29 @@
+{
+  "paths": {
+    "modified": {
+      "/tags/{resourceArn}": {
+        "operations": {
+          "modified": {
+            "POST": {
+              "responses": {
+                "deleted": [
+                  "482"
+                ],
+                "modified": {
+                  "481": {
+                    "description": {
+                      "from": "AccessDeniedException",
+                      "to": "ThrottlingException"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

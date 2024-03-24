@@ -1,0 +1,105 @@
+{
+  "paths": {
+    "modified": {
+      "/video/v1/playback-restrictions": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "operationID": {
+                "from": "list-playback-restrictions",
+                "to": "list-playback-resitrctions"
+              },
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "example": {
+                            "from": {
+                              "data": [
+                                {
+                                  "created_at": "1607939184",
+                                  "id": "9dbEg8o00uqQzZbzJT6NXdqNA00SdnSo8O",
+                                  "referrer": {
+                                    "allow_no_referrer": false,
+                                    "allowed_domains": [
+                                      "*.example.com"
+                                    ]
+                                  },
+                                  "updated_at": "1607945257"
+                                },
+                                {
+                                  "created_at": "1607939188",
+                                  "id": "012uTQqPygDYWz3jey8cyOX9n01Bd5SDH1",
+                                  "referrer": {
+                                    "allow_no_referrer": true,
+                                    "allowed_domains": [
+                                      "a.example.com",
+                                      "b.example.com"
+                                    ]
+                                  },
+                                  "updated_at": "1607945980"
+                                }
+                              ],
+                              "limit": 100,
+                              "page": 1,
+                              "total_row_count": 2
+                            },
+                            "to": {
+                              "data": [
+                                {
+                                  "created_at": "1607939184",
+                                  "id": "9dbEg8o00uqQzZbzJT6NXdqNA00SdnSo8O",
+                                  "referrer": {
+                                    "allow_no_referrer": false,
+                                    "allowed_domains": [
+                                      "*.example.com"
+                                    ]
+                                  },
+                                  "updated_at": "1607945257"
+                                },
+                                {
+                                  "created_at": "1607939184",
+                                  "id": "9dbEg8o00uqQzZbzJT6NXdqNA00SdnSo8O",
+                                  "referrer": {
+                                    "allow_no_referrer": false,
+                                    "allowed_domains": [
+                                      "*.example.com"
+                                    ]
+                                  },
+                                  "updated_at": "1607945257"
+                                },
+                                {
+                                  "created_at": "1607939188",
+                                  "id": "012uTQqPygDYWz3jey8cyOX9n01Bd5SDH1",
+                                  "referrer": {
+                                    "allow_no_referrer": true,
+                                    "allowed_domains": [
+                                      "a.example.com",
+                                      "b.example.com"
+                                    ]
+                                  },
+                                  "updated_at": "1607945980"
+                                }
+                              ],
+                              "limit": 100,
+                              "page": 1,
+                              "total_row_count": 2
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

@@ -1,0 +1,42 @@
+{
+  "paths": {
+    "modified": {
+      "/systems/{systemSymbol}/waypoints/{waypointSymbol}/market": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "required": {
+                                    "added": [
+                                      "tradeGoods",
+                                      "transactions"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}

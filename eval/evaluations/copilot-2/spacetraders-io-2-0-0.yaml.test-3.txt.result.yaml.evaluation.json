@@ -1,0 +1,42 @@
+{
+  "paths": {
+    "modified": {
+      "/systems/{systemSymbol}/waypoints/{waypointSymbol}/shipyard": {
+        "operations": {
+          "modified": {
+            "GET": {
+              "responses": {
+                "modified": {
+                  "200": {
+                    "content": {
+                      "mediaTypeModified": {
+                        "application/json": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "data": {
+                                  "required": {
+                                    "added": [
+                                      "ships",
+                                      "transactions"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "IS_CORRECT": false
+}
