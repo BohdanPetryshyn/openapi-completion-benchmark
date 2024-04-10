@@ -8,8 +8,8 @@ for i in "${!EXPERIMENTS[@]}"; do
     CONTEXT_SIZE="${CONTEXT_SIZES[$i]}"
     
     echo "Running experiment $EXPERIMENT"
-    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="0.6" SUFFIX="0.4" CONTEXT_SIZE="$CONTEXT_SIZE" EXPERIMENT_NAME="60-40-$EXPERIMENT-no-overfilling" node src/infill-test-cases.js
+    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="0.5" SUFFIX="0.5" CONTEXT_SIZE="$CONTEXT_SIZE" EXPERIMENT_NAME="50-50-$EXPERIMENT-no-overfilling" node src/infill-test-cases.js
 
     echo "Evaluating experiment $EXPERIMENT"
-    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="0.6" SUFFIX="0.4" CONTEXT_SIZE="$CONTEXT_SIZE" EXPERIMENT_NAME="60-40-$EXPERIMENT-no-overfilling" node src/evaluate-results.js
+    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="0.5" SUFFIX="0.5" CONTEXT_SIZE="$CONTEXT_SIZE" EXPERIMENT_NAME="50-50-$EXPERIMENT-no-overfilling" node src/evaluate-results.js
 done

@@ -7,7 +7,5 @@ export function buildPrompt({ prefix, suffix, maxTokens }) {
     "left"
   );
 
-  return {
-    promptPrefix,
-  };
+  return promptPrefix;
 }

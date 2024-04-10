@@ -10,8 +10,8 @@ for i in "${!EXPERIMENTS[@]}"; do
     SUFFIX="${SUFFIXES[$i]}"
     
     echo "Running experiment $EXPERIMENT"
-    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="$PREFIX" SUFFIX="$SUFFIX" EXPERIMENT_NAME=$EXPERIMENT-no-overfilling node src/infill-test-cases.js
+    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="$PREFIX" SUFFIX="$SUFFIX" CONTEXT_SIZE="4096" EXPERIMENT_NAME=$EXPERIMENT-no-overfilling-2 node src/infill-test-cases.js
 
     echo "Evaluating experiment $EXPERIMENT"
-    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="$PREFIX" SUFFIX="$SUFFIX" EXPERIMENT_NAME=$EXPERIMENT-no-overfilling node src/evaluate-results.js
+    MODEL="codellama/CodeLlama-7b-hf" PROMPT_BUILDER=naive-asymmetrical PREFIX="$PREFIX" SUFFIX="$SUFFIX" CONTEXT_SIZE="4096" EXPERIMENT_NAME=$EXPERIMENT-no-overfilling-2 node src/evaluate-results.js
 done

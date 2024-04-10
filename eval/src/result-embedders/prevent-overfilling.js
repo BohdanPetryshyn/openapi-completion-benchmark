@@ -1,5 +1,6 @@
 export function embedResult(result, prefix, suffix) {
   if (result.endsWith(" <EOT>")) {
+    console.log("<EOT> found");
     return {
       embedded: true,
       result: result.slice(0, -6),

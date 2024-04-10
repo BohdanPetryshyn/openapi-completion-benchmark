@@ -51,8 +51,5 @@ export function buildPrompt({ prefix, suffix, maxTokens }) {
     "right"
   );
 
-  return {
-    promptPrefix,
-    promptSuffix,
-  };
+  return `<PRE> ${promptPrefix} <SUF>${promptSuffix} <MID>`;
 }
