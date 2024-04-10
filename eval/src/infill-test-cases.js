@@ -68,7 +68,7 @@ await Promise.all(
 
       while (true) {
         const promptBuildingStartTime = Date.now();
-        const { promptPrefix, promptSuffix } = buildPrompt({
+        const inputs = buildPrompt({
           prefix: testDefinitionPrefix,
           suffix: testDefinitionSuffix,
           maxTokens: CONTEXT_SIZE - 10,
@@ -79,10 +79,6 @@ await Promise.all(
             promptBuildingEndTime - promptBuildingStartTime
           } ms`
         );
-
-        const inputs = promptSuffix
-          ? `<PRE> ${promptPrefix} <SUF>${promptSuffix} <MID>`
-          : promptPrefix;
 
         const generatedText = await pRetry(
           async () => {
@@ -110,6 +106,11 @@ await Promise.all(
           { retries: 5 }
         );
 
+        if (generatedText.length === 0) {
+          logger.info("Empty generation result");
+          break;
+        }
+
         // Previously, model was returning <MID>
         // const infilledPart = generatedText.slice(
         //   generatedText.indexOf("<MID>") + 5
@@ -126,8 +127,8 @@ await Promise.all(
         const embedResultStartTime = Date.now();
         const embeddedResult = embedResult(
           generatedText,
-          promptPrefix,
-          promptSuffix || testDefinitionSuffix
+          testDefinitionPrefix,
+          testDefinitionSuffix
         );
         const embedResultEndTime = Date.now();
         logger.info(
