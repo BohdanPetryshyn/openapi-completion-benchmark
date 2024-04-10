@@ -29,8 +29,8 @@
                                                 "power"
                                               ],
                                               "deleted": [
-                                                "range",
-                                                "capacity"
+                                                "capacity",
+                                                "range"
                                               ]
                                             }
                                           }
@@ -76,8 +76,8 @@
                                                     "power"
                                                   ],
                                                   "deleted": [
-                                                    "range",
-                                                    "capacity"
+                                                    "capacity",
+                                                    "range"
                                                   ]
                                                 }
                                               }
@@ -128,8 +128,8 @@
                                               "power"
                                             ],
                                             "deleted": [
-                                              "range",
-                                              "capacity"
+                                              "capacity",
+                                              "range"
                                             ]
                                           }
                                         }
@@ -180,8 +180,8 @@
                                                     "power"
                                                   ],
                                                   "deleted": [
-                                                    "range",
-                                                    "capacity"
+                                                    "capacity",
+                                                    "range"
                                                   ]
                                                 }
                                               }
@@ -236,8 +236,8 @@
                                                       "power"
                                                     ],
                                                     "deleted": [
-                                                      "capacity",
-                                                      "range"
+                                                      "range",
+                                                      "capacity"
                                                     ]
                                                   }
                                                 }

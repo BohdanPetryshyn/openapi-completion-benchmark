@@ -91,7 +91,7 @@
             "POST": {
               "securityRequirements": {
                 "modified": {
-                  "Oauth2 AND Oauth2c": {
+                  "Oauth2c AND Oauth2": {
                     "Oauth2": {
                       "added": [
                         "https://www.googleapis.com/auth/display-video"
@@ -145,7 +145,7 @@
             "GET": {
               "securityRequirements": {
                 "modified": {
-                  "Oauth2c AND Oauth2": {
+                  "Oauth2 AND Oauth2c": {
                     "Oauth2": {
                       "added": [
                         "https://www.googleapis.com/auth/display-video"

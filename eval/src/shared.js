@@ -12,8 +12,6 @@ export const EVALUATIONS_DIR = `runtime/evaluations/${MODEL.replace(
   "/",
   "--"
 )}/${PROMPT_BUILDER}/${process.env.EXPERIMENT_NAME}`;
-// export const RESULTS_DIR = `results/copilot`;
-// export const EVALUATIONS_DIR = `evaluations/copilot-2`;
 
 export const MASKED_LINES_PER_TEST_CASE = 10;
 export const MASK = "<<MASK>>";

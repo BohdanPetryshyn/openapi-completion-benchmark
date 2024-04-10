@@ -17,8 +17,8 @@
                                 "data": {
                                   "required": {
                                     "added": [
-                                      "transactions",
-                                      "tradeGoods"
+                                      "tradeGoods",
+                                      "transactions"
                                     ]
                                   }
                                 }

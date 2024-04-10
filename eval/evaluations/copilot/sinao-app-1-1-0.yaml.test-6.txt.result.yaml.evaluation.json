@@ -7,56 +7,6 @@
       "/apps/{appId}/invoices/{id}/preview.jpg"
     ],
     "modified": {
-      "/apps/{appId}/recurringinvoices": {
-        "operations": {
-          "modified": {
-            "GET": {
-              "responses": {
-                "modified": {
-                  "200": {
-                    "content": {
-                      "mediaTypeModified": {
-                        "application/json": {
-                          "schema": {
-                            "items": {
-                              "allOf": {
-                                "added": [
-                                  "RevisionSchema[1]"
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "POST": {
-              "responses": {
-                "modified": {
-                  "200": {
-                    "content": {
-                      "mediaTypeModified": {
-                        "application/json": {
-                          "schema": {
-                            "allOf": {
-                              "added": [
-                                "RevisionSchema[1]"
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "/apps/{appId}/recurringinvoices/batch": {
         "operations": {
           "modified": {
@@ -71,73 +21,6 @@
                             "added": [
                               "RevisionSchema[1]"
                             ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "responses": {
-                "modified": {
-                  "200": {
-                    "content": {
-                      "mediaTypeModified": {
-                        "application/json": {
-                          "schema": {
-                            "allOf": {
-                              "added": [
-                                "RevisionSchema[1]"
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/apps/{appId}/recurringinvoices/{id}": {
-        "operations": {
-          "modified": {
-            "GET": {
-              "responses": {
-                "modified": {
-                  "200": {
-                    "content": {
-                      "mediaTypeModified": {
-                        "application/json": {
-                          "schema": {
-                            "allOf": {
-                              "added": [
-                                "RevisionSchema[1]"
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "POST": {
-              "responses": {
-                "modified": {
-                  "200": {
-                    "content": {
-                      "mediaTypeModified": {
-                        "application/json": {
-                          "schema": {
-                            "allOf": {
-                              "added": [
-                                "RevisionSchema[1]"
-                              ]
-                            }
                           }
                         }
                       }
