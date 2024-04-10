@@ -1,31 +1,6 @@
 {
   "paths": {
     "modified": {
-      "/apps/{appId}/recurringinvoices/batch": {
-        "operations": {
-          "modified": {
-            "POST": {
-              "parameters": {
-                "modified": {
-                  "query": {
-                    "data": {
-                      "schema": {
-                        "items": {
-                          "allOf": {
-                            "added": [
-                              "RevisionSchema[1]"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "/apps/{appId}/sepamandates/credittransfer": {
         "operations": {
           "modified": {
@@ -50,18 +25,6 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "modified": {
-        "RecurringInvoice": {
-          "allOf": {
-            "added": [
-              "RevisionSchema[1]"
-            ]
-          }
-        }
-      }
-    }
-  },
+  "components": {},
   "IS_CORRECT": false
 }
