@@ -1,1 +1,5 @@
-.venv
+/.venv
+/node_modules/
+/runtime/
+/test
+/.env
