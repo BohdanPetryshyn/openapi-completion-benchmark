@@ -78,22 +78,22 @@ export FORMAT="<JSON or YAML. Default: YAML>"
 export HF_API_KEY="<Your Hugging Face API key>"
 
 # Infills and evaluates the test cases for a range of prefix to suffix ratios
-bash prefix-suffix.bash
+bash prefix-suffix.sh
 
 # Infills and evaluates the test cases for a range of context sizes
-bash context-size.bash
+bash context-size.sh
 
 # Infills and evaluates the test cases for a range of context sizes in the autoregressive mode
-bash context-size-naive.bash
+bash context-size-naive.sh
 
 # Infills and evaluates the test cases for a range of context sizes in the SPM prompt format mode
-bash context-size-spm.bash
+bash context-size-spm.sh
 
 # Infills and evaluates the test cases for a range of context sizes using the 13 billion parameter model
-bash context-size-13b.bash
+bash context-size-13b.sh
 
 # Infills and evaluates the test cases for a range of context sizes with OpenAPI metadata included in the prompt
-bash context-size-with-components.bash
+bash context-size-with-components.sh
 ```
 
 ## Visualization
