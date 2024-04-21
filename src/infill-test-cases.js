@@ -89,6 +89,7 @@ await Promise.all(
               inputs,
               parameters: {
                 max_new_tokens: 250,
+                return_full_text: false,
               },
             });
             const generationEndTime = Date.now();
