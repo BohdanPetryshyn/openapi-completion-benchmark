@@ -20,7 +20,6 @@ import { embedResult } from "./result-embedders/prevent-overfilling.js";
 
 const INFILLED_LINES_TOLERANCE = 5;
 const INFILLED_CHARACTERS_PER_LINE_TOLERANCE = 500;
-
 const PARALLELISM = 1;
 
 const logger = winston.createLogger({

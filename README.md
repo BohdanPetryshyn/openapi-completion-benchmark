@@ -1,10 +1,10 @@
 # OpenAPI Completion Benchmark
 
-This repository contains the code and data for the paper "Optimizing Large Language Models for OpenAPI Completion: A Comparative Analysis of Code Llama and GitHub Copilot" by [Bohdan Petryshyn](https://www.linkedin.com/in/bpetryshyn/) and [Mantas Lukoševičius](https://www.linkedin.com/in/lukosevicius/).
+This repository contains the code and data for the paper "Optimizing Large Language Models for OpenAPI Code Completion" by [Bohdan Petryshyn](https://orcid.org/0009-0003-4030-4842) and [Mantas Lukoševičius](https://orcid.org/0000-0001-7963-285X).
 
 ## Abstract
 
-Recent advancements in Large Language Models (LLMs) and their utilization in code generation tasks have significantly reshaped the field of software development. Despite their remarkable efficacy in mainstream programming languages, their performance lags when applied to less ubiquitous tasks such as OpenAPI definitions. This study evaluates the OpenAPI completion performance of GitHub Copilot, a prevalent commercial code completion tool, and proposes an alternative solution leveraging Meta's open-source model Code Llama. An OpenAPI completion benchmark proposed in this research is used to evaluate the performance of both solutions. Through a series of over thirty experiments, the impact of various factors and prompt-engineering techniques on the Code Llama model's performance is analyzed. The suggested solution surpasses GitHub Copilot in accurate OpenAPI completion generation by 34\%, despite utilizing a model with 25 times fewer parameters.
+Recent advancements in Large Language Models (LLMs) and their utilization in code generation tasks have significantly reshaped the field of software development. Despite the remarkable efficacy of code completion solutions in mainstream programming languages, their performance lags when applied to less ubiquitous formats such as OpenAPI definitions. This study evaluates the OpenAPI completion performance of GitHub Copilot, a prevalent commercial code completion tool, and proposes a set of task-specific optimizations leveraging Meta's open-source model Code Llama. A semantics-aware OpenAPI completion benchmark proposed in this research is used to perform a series of experiments through which the impact of various prompt-engineering and fine-tuning techniques on the Code Llama model's performance is analyzed. The fine-tuned Code Llama model reaches a peak correctness improvement of 55.2% over GitHub Copilot despite utilizing 25 times fewer parameters than the commercial solution's underlying Codex model. Additionally, this research proposes an enhancement to a widely used code infilling training technique, addressing the issue of underperformance when the model is prompted with context sizes smaller than those used during training.
 
 ## Dataset
 
@@ -36,7 +36,8 @@ The following command can be used to infill the test cases using the Code Llama 
 export TEST_CASES_DIR="<Test cases output dir. Default: tests>"
 
 export HF_API_KEY="<Your Hugging Face API key>"
-export MODEL="<codellama/CodeLlama-7b-hf or codellama/CodeLlama-13b-hf. Default: codellama/CodeLlama-7b-hf>"
+export MODEL="<Your model name. Default: codellama/CodeLlama-7b-hf>"
+export ENDPOINT="<Your Hugging Face Inference Endpoint.>"
 export PROMPT_BUILDER="<naive, naive-asymmetrical, naive-asymmetrical-spm, or with-components. Default: naive>"
 export PREFIX="<Prefix ratio. Default: 0.5>"
 export SUFFIX="<Suffix ratio. Default: 0.5>"
@@ -56,7 +57,7 @@ The following command can be used to evaluate the completed test cases:
 
 ```bash
 export DEFINITIONS_DIR="<Original definitions. Default: apis>"
-export TEST_CASES_DIR="<Test cases output dir. Default: tests>"
+export RESULTS_DIR="<Completed definitions output dir. Default: runtime/results>"
 
 export MODEL="<codellama/CodeLlama-7b-hf or codellama/CodeLlama-13b-hf. Default: codellama/CodeLlama-7b-hf>"
 export PROMPT_BUILDER="<naive, naive-asymmetrical, naive-asymmetrical-spm, or with-components. Default: naive>"
@@ -65,7 +66,7 @@ export EXPERIMENT_NAME="<Experiment name for the output directory. Default: curr
 node src/evaluate-results.js
 ```
 
-The script will take the completed test cases from the directory specified in the `TEST_CASES_DIR` environment variable and the original OpenAPI definitions from the directory specified in the `DEFINITIONS_DIR` environment variable. The evaluation results will be stored in the `runtime/evaluations/<MODEL>/<PROMPT_BUILDER>/<EXPERIMENT_NAME>` directory.
+The script will take the completed test cases from the directory specified in the `RESULTS_DIR` environment variable and the original OpenAPI definitions from the directory specified in the `DEFINITIONS_DIR` environment variable. The evaluation results will be stored in the `runtime/evaluations/<MODEL>/<PROMPT_BUILDER>/<EXPERIMENT_NAME>` directory.
 
 ### Repetitive Experiments
 
@@ -76,26 +77,18 @@ export DEFINITIONS_DIR="<Original definitions. Default: apis>"
 export TEST_CASES_DIR="<Test cases output dir. Default: tests>"
 export FORMAT="<JSON or YAML. Default: YAML>"
 export HF_API_KEY="<Your Hugging Face API key>"
+export MODEL="<Your model name. Default: codellama/CodeLlama-7b-hf>"
+export ENDPOINT="<Your Hugging Face Inference Endpoint.>"
+export PROMPT_BUILDER="<naive, naive-asymmetrical, naive-asymmetrical-spm, or with-components. Default: naive>"
+export PREFIX="<Prefix ratio. Default: 0.5>"
+export SUFFIX="<Suffix ratio. Default: 0.5>"
+export CONTEXT_SIZE="<Context size, tokens. Default: 4096>"
 
 # Infills and evaluates the test cases for a range of prefix to suffix ratios
+# Automatically sets the PREFIX and SUFFIX environment variables during experiments
 bash prefix-suffix.sh
 
 # Infills and evaluates the test cases for a range of context sizes
+# Automatically sets the CONTEXT_SIZE environment variable during experiments
 bash context-size.sh
-
-# Infills and evaluates the test cases for a range of context sizes in the autoregressive mode
-bash context-size-naive.sh
-
-# Infills and evaluates the test cases for a range of context sizes in the SPM prompt format mode
-bash context-size-spm.sh
-
-# Infills and evaluates the test cases for a range of context sizes using the 13 billion parameter model
-bash context-size-13b.sh
-
-# Infills and evaluates the test cases for a range of context sizes with OpenAPI metadata included in the prompt
-bash context-size-with-components.sh
 ```
-
-## Visualization
-
-The evaluation results can be visualized with the `visualization.ipynb` Jupyter notebook. The notebook has to be manually populated with the evaluation results and is currently contains the results from the original study.
