@@ -1,6 +1,6 @@
 # OpenAPI Completion Benchmark
 
-This repository contains the code and data for the paper "Optimizing Large Language Models for OpenAPI Code Completion" by [Bohdan Petryshyn](https://orcid.org/0009-0003-4030-4842) and [Mantas Lukoševičius](https://orcid.org/0000-0001-7963-285X).
+This repository contains the code and data for the paper ["Optimizing Large Language Models for OpenAPI Code Completion"](https://arxiv.org/abs/2405.15729) by [Bohdan Petryshyn](https://orcid.org/0009-0003-4030-4842) and [Mantas Lukoševičius](https://orcid.org/0000-0001-7963-285X).
 
 ## Abstract
 
